@@ -9,10 +9,10 @@ export class ProductController {
     return this.productService.getAllProducts();
   }
 
-  @Get('pcs')
-  async getPcs() {
-    return this.productService.getAllPcs();
-  }
+  // @Get('pcs')
+  // async getPcs() {
+  //   return this.productService.getAllPcs();
+  // }
 
   @Get(':category')
   async getProductsByCategory(@Param('category') category: string) {
