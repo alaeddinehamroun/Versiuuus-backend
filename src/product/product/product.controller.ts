@@ -1,4 +1,5 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
+import { query } from 'express';
 import { ProductService } from './product.service';
 
 @Controller('products')
@@ -25,5 +26,10 @@ export class ProductController {
     @Param('id') id: string,
   ) {
     return this.productService.getProductById(category, id);
+  }
+
+  @Get()
+  async search(@Query('search') search: string) {
+    return this.productService.search(search);
   }
 }

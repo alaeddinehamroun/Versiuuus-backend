@@ -29,4 +29,11 @@ export class ProductService {
       return this.PcModel.find();
     }
   }
+  async search(search: string) {
+    return this.PcModel.find({
+      name: { $regex: '.*' + search + '.*', $options: 'i' },
+    })
+      .select('name _id')
+      .limit(5);
+  }
 }
