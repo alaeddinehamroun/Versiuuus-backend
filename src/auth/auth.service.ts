@@ -15,8 +15,10 @@ export class AuthService {
   ) {}
 
   async login(user: LoginDTO) {
-    const payload = { email: user.email };
+    const email = user.email;
+    const payload = { email: email };
     return {
+      user,
       access_token: this.jwtService.sign(payload),
     };
   }
@@ -37,16 +39,17 @@ export class AuthService {
   }
 
   async validateUser(email: string, password: string): Promise<any> {
-    const user: User = await this.UserModel.findOne({ email: email });
-
+    const user: LoginDTO = await this.UserModel.findOne({ email: email });
     const isValidPassword = await this.comparePasswords(
       password,
       user.hashedPassword,
     );
 
     if (user && isValidPassword) {
-      const { hashedPassword, ...result } = user;
-      return result;
+      return {
+        _id: user._id,
+        email: user.email,
+      };
     }
     return null;
   }

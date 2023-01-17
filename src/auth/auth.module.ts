@@ -15,7 +15,7 @@ import { AuthController } from './auth.controller';
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '360000s' },
     }),
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy],
