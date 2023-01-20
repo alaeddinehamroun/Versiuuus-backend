@@ -1,14 +1,14 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-export type PcDocument = HydratedDocument<Pc>;
+export type PhoneDocument = HydratedDocument<Phone>;
 
 @Schema()
-export class Pc {
+export class Phone {
   @Prop({ required: true })
   name: string;
   // @Prop({ required: true })
   // image: string;
 }
 
-export const PcSchema = SchemaFactory.createForClass(Pc);
+export const PhoneSchema = SchemaFactory.createForClass(Phone);

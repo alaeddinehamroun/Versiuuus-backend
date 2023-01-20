@@ -5,10 +5,10 @@ import { ProductService } from './product.service';
 @Controller('products')
 export class ProductController {
   constructor(private productService: ProductService) {}
-  @Get('all')
-  async getAll() {
-    return this.productService.getAllProducts();
-  }
+  // @Get('all')
+  // async getAll() {
+  //   return this.productService.getAllProducts();
+  // }
 
   // @Get('pcs')
   // async getPcs() {

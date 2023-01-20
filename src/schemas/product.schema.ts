@@ -7,8 +7,8 @@ export type ProductDocument = HydratedDocument<Product>;
 export class Product {
   @Prop({ required: true })
   name: string;
-  @Prop({ required: true })
-  image: string;
+  // @Prop({ required: true })
+  // image: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
